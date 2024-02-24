@@ -14,7 +14,6 @@
     @if (count($artist->albums) > 0)
     <div class="row d-flex justify-content-center align-items-center">
         @foreach ($artist->albums as $element) 
-        {{$element}}
         <div class="col">
             <div class="card mb-3" style="border-radius: 15px;">
             <div class="card-body p-4">
@@ -45,8 +44,13 @@
                     </div>
                     </div>
                     <div class="d-flex pt-1">
-                        <a href="{{ route('albums.show', $element->id) }}" class="btn btn-outline-primary me-1 flex-grow-1">{{ __('Ver details') }}</a>
+                        @if (count($element->songs) == 0)
+                        <div class="alert alert-danger flex-grow-1" role="alert">
+                            No hay canciones
+                           </div>
+                        @else
                         <a href="{{ route('songs.index', $element->id) }}" class="btn btn-primary flex-grow-1">{{ __('Ver canciones') }}</a>
+                        @endif
                     </div>
                 </div>
                 </div>
