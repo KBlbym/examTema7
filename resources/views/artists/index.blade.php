@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>{{ __('Listado de de artists') }}</h1>
+    <h1>{{ __('Listado de de artista ' ) }}</h1>
 
     <table class="table">
         <thead>

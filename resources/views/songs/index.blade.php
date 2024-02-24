@@ -2,31 +2,27 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>{{ __('Listado de de songs') }}</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>album_id</th>
-                <th>name</th>
-                <th>duration</th>
-                <th>order</th>
-                <th>Acción</th>
-    </tr>
-        </thead>
-        <tbody>
-            @foreach ($songs as $element)
-            <tr>
-                <td>{{ $element->album_id }}</td>
-                <td>{{ $element->name }}</td>
-                <td>{{ $element->duration }}</td>
-                <td>{{ $element->order }}</td>
-                <td>
-                    <a href="{{ route('songs.show', $element->id) }}" class="btn btn-info">{{ __('Ver') }}</a>
-                    
-                </td>
-                </tr>
+
+
+
+<div class="container">
+    <h2>{{ __('Listado de Canciones del album ' ) }}</h2>
+    <ul class="list-group">
+
+        
+        @foreach ($songs as $element)
+        <?php 
+            $minutos = floor($element->duration / 60); // Obtener los minutos
+            $segundos = $element->duration % 60;
+        ?>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <button class="btn" data-src="cancion2.mp3"><i class="bi bi-play-circle" style="font-size: 2rem; color: cornflowerblue;"></i></button>
+            {{ $element->order }} |  {{ $element->name }} 
+            <span>{{ __($minutos.':'.($segundos < 10 ? '0'.$segundos : $segundos)) }}</span>
+          </li>
             @endforeach
-        </tbody>
-    </table>
+        
+      </ul>
+</div>
 @endsection

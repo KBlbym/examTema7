@@ -23,8 +23,9 @@ Route::get('/', HomeController::class .'@index')->name('posts.index');
 
 Route::get('/artists', ArtistController::class .'@index')->name('artists.index');
 Route::get('/artists/{artist}', ArtistController::class .'@show')->name('artists.show');
-Route::get('/albums', AlbumController::class .'@index')->name('albums.index');
+Route::get('/{artist}/albums', AlbumController::class .'@index')->name('albums.index');
 Route::get('/albums/{artist}', AlbumController::class .'@show')->name('albums.show');
 
-Route::get('/songs', SongController::class .'@index')->name('songs.index');
-Route::get('/songs/{album}', SongController::class .'@show')->name('songs.show');
+
+Route::get('/{albums}/songs', SongController::class .'@index')->name('songs.index');
+//Route::get('/songs', SongController::class .'@index')->name('songs.index');

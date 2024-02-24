@@ -16,20 +16,11 @@ class Song extends Model
         'order'
     ];
 
-    protected $table = 'albums';
+    protected $table = 'songs';
 
-    public function albums()
+    public function album()
     {
         return $this->belongsTo(Album::class);
     }
 
-    public function getAttributeTypes()
-    {
-        return [
-          'album_id' => 'integer',
-          'name' => 'string',
-          'duration' => 'integer',
-          'order' => 'integer',
-        ];
-    }
 }

@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //insertando atistas
-      /*  DB::table('artists')->insert([
+        DB::table('artists')->insert([
             ["id" => 1, "name" => "Led Zeppelin"],
             ["id" => 2, "name" => "Jimi Hendrix"],
             ["id" => 3, "name" => "Paco de Lucía"],
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             ["id" => 5, "artist_id" => 4, "name" => "Origin of Symmetry", "year" => 2001],
             ["id" => 6, "artist_id" => 4, "name" => "Absolution", "year" => 2003],
         ]);
-*/
+
         //insertar songs
         DB::table('songs')->insert([
             ["id" => 1, "album_id" => 1, "name" => "Good durations, Bad durations", "duration" => 187, "order" => 1],

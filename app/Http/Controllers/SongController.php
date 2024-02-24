@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class SongController extends Controller
 {
-    public function index()
+    public function index($album_id)
     {
-        $songs = Song::all();
+        $songs = Song::where('album_id', $album_id)->get();
         return view('songs.index', compact('songs'));
     }
 
